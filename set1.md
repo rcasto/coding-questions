@@ -1,5 +1,5 @@
 # Problem 1
-Given a string A, check if all the characters it contains are unique or not
+Given a string A, check if all the characters it contains are unique or not (case insensitive)
 
 Input: A string
 
@@ -10,7 +10,7 @@ unique 'cat' ---> true
 unique 'bob' ---> false
 
 # Problem 2
-Given a string A, check if it is a permutation of another string B.
+Given a string A, check if it is a permutation of another string B (case insensitive)
 
 Input: 2 strings separated by space
 Check if first string is permutation of second string
@@ -25,6 +25,7 @@ isPermutation bob rob ---> false
 Given a set of numbers, compute the average.
 
 Input: Set of numbers, each separated by a space
+Assume all the numbers are positive
 
 Output: The average number of the set
 
