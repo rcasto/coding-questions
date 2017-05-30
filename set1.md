@@ -1,4 +1,15 @@
 # Problem 1
+Given a string A, check if all the characters it contains are unique or not
+
+Input: A string
+
+Output: Boolean, true = all characters are unique, false = not all characters are unique
+
+ex)
+unique 'cat' ---> true
+unique 'bob' ---> false
+
+# Problem 2
 Given a string A, check if it is a permutation of another string B.
 
 Input: 2 strings separated by space
@@ -10,10 +21,7 @@ ex)
 isPermutation cat act ---> true
 isPermutation bob rob ---> false
 
-Can you do this without creating your own data structure?
-How much space do you really need?
-
-# Problem 2
+# Problem 3
 Given a set of numbers, compute the average.
 
 Input: Set of numbers, each separated by a space
