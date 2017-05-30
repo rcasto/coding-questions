@@ -9,6 +9,8 @@ ex)
 unique 'cat' ---> true
 unique 'bob' ---> false
 
+How much space do you really need to do this?
+
 # Problem 2
 Given a string A, check if it is a permutation of another string B (case insensitive)
 
