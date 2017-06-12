@@ -1,11 +1,15 @@
 # Problem 1
-Write a function that takes a text file as input and removes all duplicate words.  Assume the delimiter for words is being separated by a space
+Write a function that takes a text file as input and removes all duplicate words.  
+Assume the delimiter for words is being separated by a space and case does not matter
 
 Use this function to dedupe the text in [The Iliad](http://classics.mit.edu/Homer/iliad.mb.txt).  
 How many unique words are there?
 
 ```
-    dedupe iliad.txt
+test.txt
+"One banana, two banana, three banana...four"
+
+dedupe test.txt ---> ["one", "banana", "two", "three", "four"]
 ```
 
 # Problem 2
