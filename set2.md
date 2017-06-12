@@ -1,7 +1,8 @@
 # Problem 1
 Write a function that takes a text file as input and removes all duplicate words.  Assume the delimiter for words is being separated by a space
 
-Use this function to dedupe the text in [The Iliad](http://classics.mit.edu/Homer/iliad.mb.txt).  How many unique words are there?
+Use this function to dedupe the text in [The Iliad](http://classics.mit.edu/Homer/iliad.mb.txt).  
+How many unique words are there?
 
 ex)
 ```
