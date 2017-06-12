@@ -4,7 +4,6 @@ Write a function that takes a text file as input and removes all duplicate words
 Use this function to dedupe the text in [The Iliad](http://classics.mit.edu/Homer/iliad.mb.txt).  
 How many unique words are there?
 
-ex)
 ```
     dedupe iliad.txt
 ```
@@ -20,7 +19,6 @@ Design a data structure which has the following operations (you can assume the d
 - getRecent();
     - Returns the 5 most recenty accessed (add/get) items
 
-ex)  
 ```  
 var dataStructure = new DataStructure();
 dataStructure.add("hello");
