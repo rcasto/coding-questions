@@ -12,23 +12,35 @@ test.txt
 dedupe test.txt ---> ["one", "banana", "two", "three", "four"]
 ```
 
-# Problem 2
+# Problem 2 (Revised)
 Design a data structure which has the following operations (you can assume the data is a string for this problem):
-- add(string str);
-    - Adds string to the end of the saved list
-- remove(int index);
-    - Removes the item at the specified index
-- get(int index);
-    - Returns the item stored at the specified index
-- getRecent();
-    - Returns the 5 most recenty accessed (add/get) items
+- add(string str) => int
+    - Adds the passed in string to the internal structure
+    - Returns the updated number of items in the data structure
+- remove(string str) => bool
+    - Removes the first instance of the passed in string
+    - Return true if a data entry with the passed in string was removed, false otherwise
+- removeAll(string str) => void
+    - Removes all instances of the passed in string
+    - If no string is passed in, clear the internal structure of all data
+- has(string str) => bool
+    - Returns true if the passed in string exists in the structure, false otherwise
+- getNumEntriesOf(string str) => int
+    - Return the number of times the passed in string appears in the structure
+- getRecent() => List(string)
+    - Returns a list of up to the 5 most recenty accessed items
+    - Access = added, called has(...) on, or called getNumEntriesOf(...) on
+    - All items in the list should be unique
+    - Should not contain strings which were completely removed
 
 ```  
-var dataStructure = new DataStructure();
-dataStructure.add("hello");
-dataStructre.add("world");
-dataStructure.add("blah");
-dataStructure.getRecent(); ---> ['blah', 'world', 'hello']
-dataStructure.remove(2);
-dataStructure.getRecent(); ---> ['blah', 'world']
+var dataStructure = new DataStructure()
+dataStructure.add("hello") --> 1
+dataStructre.add("world") --> 2
+dataStructure.has('world') --> true
+dataStructure.getRecent() --> ['world', 'hello']
+dataStructure.add('hello') --> 3
+dataStructure.getRecent() --> ['hello', 'world']
+dataStructure.remove('blah') --> false
+dataStructure.getNumEntriesOf('hello') --> 2
 ```
