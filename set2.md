@@ -13,7 +13,7 @@ dedupe test.txt ---> ["one", "banana", "two", "three", "four"]
 ```
 
 # Problem 2 (Revised)
-Design a data structure which has the following operations (you can assume the data is a string for this problem):
+Design a data structure which has the following operations (the data is assumed to be a string for this problem):
 - add(string str) => int
     - Adds the passed in string to the internal structure
     - Returns the updated number of items in the data structure
@@ -30,7 +30,6 @@ Design a data structure which has the following operations (you can assume the d
 - getRecent() => List(string)
     - Returns a list of up to the 5 most recenty accessed items
     - Access = added, called has(...) on, or called getNumEntriesOf(...) on
-    - All items in the list should be unique
     - Should not contain strings which were completely removed
 
 ```  
@@ -40,7 +39,7 @@ dataStructre.add("world") --> 2
 dataStructure.has('world') --> true
 dataStructure.getRecent() --> ['world', 'hello']
 dataStructure.add('hello') --> 3
-dataStructure.getRecent() --> ['hello', 'world']
+dataStructure.getRecent() --> ['hello', 'hello', 'world']
 dataStructure.remove('blah') --> false
 dataStructure.getNumEntriesOf('hello') --> 2
 ```
