@@ -1,9 +1,10 @@
-function MostRecentList() {
+function MostRecentList(maxRecent) {
     this.list = {};
     this.recent = [];
+    this.maxRecent = maxRecent || 5;
 }
 MostRecentList.prototype.add = function (str) {
-    updateRecent(this.recent, str);
+    updateRecent(this.recent, str, this.maxRecent);
     if (this.list[str]) {
         this.list[str]++;
     } else {
@@ -31,11 +32,11 @@ MostRecentList.prototype.removeAll = function (str) {
     }
 };
 MostRecentList.prototype.has = function (str) {
-    updateRecent(this.recent, str);
+    updateRecent(this.recent, str, this.maxRecent);
     return !!this.list[str];
 };
 MostRecentList.prototype.getNumEntriesOf = function (str) {
-    updateRecent(this.recent, str);
+    updateRecent(this.recent, str, this.maxRecent);
     return this.list[str] || 0;
 };
 MostRecentList.prototype.getRecent = function () {
@@ -55,10 +56,10 @@ function removeRecent(recentList, str) {
     }
 }
 
-function updateRecent(recentList, str) {
+function updateRecent(recentList, str, maxRecent) {
     removeRecent(recentList, str);
     recentList.unshift(str);
-    if (recentList.length > 5) {
+    if (recentList.length > maxRecent) {
         recentList.pop();
     }
 }
@@ -74,6 +75,12 @@ dataStructure.remove('blah');
 console.log(dataStructure.getNumEntriesOf('hello'));
 dataStructure.logState();
 dataStructure.removeAll('hello');
+dataStructure.logState();
+dataStructure.add('bob');
+dataStructure.add('bill');
+dataStructure.add('dog');
+dataStructure.add('weed');
+dataStructure.add('tree');
 dataStructure.logState();
 
 module.exports = MostRecentList;
