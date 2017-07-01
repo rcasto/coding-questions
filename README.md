@@ -10,3 +10,10 @@ You can then run them as follows:
 cd /to/solution/directory
 node solution.js pass-in-args
 ```
+
+An example running problem set 1 solution 1 from a clone of this repo:
+```
+    cd /to/clone/root
+    cd solutions/set1
+    node problem1.js hello
+```
