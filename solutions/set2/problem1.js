@@ -4,6 +4,7 @@ var fs = require('fs');
 var distinctWordsSet = new Set();
 var unwantedCharactersSet = new Set(['\'', '!', '?', '-', ',', '.', ';', '\"', ':', '(', ')']);
 var lastToken = '';
+var whiteSpaceRegex = /\s+/;
 
 function removeUnwantedCharacters(word) {
     var wordLength = word.length;
@@ -24,7 +25,7 @@ function normalizeWordToken(token) {
 }
 
 function stitchChunks(prevLastToken, currChunk) {
-    var words = currChunk.split(/\s+/);
+    var words = currChunk.split(whiteSpaceRegex);
     var numWords = words.length;
     var chunkLength = currChunk.length;
 
@@ -33,10 +34,9 @@ function stitchChunks(prevLastToken, currChunk) {
         if (chunkLength > 0 && currChunk[0] !== ' ') {
             let save = words[0];
             words[0] = prevLastToken + words[0]; // prepend the last saved token
-            console.log(prevLastToken, '+', save, '=', words[0]);
         } else {
-            // console.log(prevLastToken);
-            words.push(prevLastToken); // last token was a word of it's own, add to list
+            numWords++;
+            words.unshift(prevLastToken); // last token was a word of it's own, add to list
         }
     }
 
@@ -86,32 +86,32 @@ function report() {
     console.log(`Done reading, there are ${numDistinctWords} distinct words`);
 }
 
-// Network request stream
-// var request = http.request({
-//     protocol: 'http:',
-//     port: 80,
-//     method: 'GET',
-//     host: 'classics.mit.edu',
-//     path: '/Homer/iliad.mb.txt'
-// }, (response) => {
-//     response.setEncoding('utf8');
-//     response.on('data', (chunk) => extractDistinct(chunk));
-//     response.on('end', () => {
-//         addDistinctWord(normalizeWordToken(lastToken));
-//         report();
-//     });
+// Network request stream - fetch text directly from website
+var request = http.request({
+    protocol: 'http:',
+    port: 80,
+    method: 'GET',
+    host: 'classics.mit.edu',
+    path: '/Homer/iliad.mb.txt'
+}, (response) => {
+    response.setEncoding('utf8');
+    response.on('data', (chunk) => extractDistinct(chunk));
+    response.on('end', () => {
+        addDistinctWord(normalizeWordToken(lastToken));
+        report();
+    });
+});
+request.once('error', (error) => console.error(error));
+
+request.end();
+
+// File stream - read from local file
+// var fileStream = fs.createReadStream('iliad.txt', {
+//     encoding: 'utf8'
 // });
-// request.once('error', (error) => console.error(error));
-
-// request.end();
-
-// File stream
-var fileStream = fs.createReadStream('iliad.txt', {
-    encoding: 'utf8'
-});
-fileStream.on('data', (chunk) => extractDistinct(chunk));
-fileStream.on('end', () => {
-    addDistinctWord(normalizeWordToken(lastToken));
-    report();
-});
-fileStream.once('error', (error) => console.error(error));
+// fileStream.on('data', (chunk) => extractDistinct(chunk));
+// fileStream.on('end', () => {
+//     addDistinctWord(normalizeWordToken(lastToken));
+//     report();
+// });
+// fileStream.once('error', (error) => console.error(error));
