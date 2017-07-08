@@ -64,6 +64,7 @@ function updateRecent(recentList, str, maxRecent) {
     }
 }
 
+// Test usage
 var dataStructure = new MostRecentList();
 dataStructure.add("hello");
 dataStructure.add("world");
