@@ -1,4 +1,4 @@
-# Problem 1<a name="problem1"></a>
+# <a name="problem1"></a>Problem 1
 Stand up a web route/service that when called with an HTTP GET request returns the text 'Hello World'
 
 If called with any other HTTP request type it should return a 404 if hit
@@ -11,14 +11,14 @@ POST http://someendpoint/api/hello
 Response -> 404
 ```
 
-# Problem 2<a name="problem2"></a>
+# <a name="problem2"></a>Problem 2
 Build a simple web front end page that has one element on it: A button
 
 This can either be a static page or a web page served by the same server you used for [Problem 1](#problem1)
 
 When this button is clicked it should send an HTTP GET request to the endpoint created in [Problem 1](#problem1)
 
-# Problem 3<a name="problem3"></a>
+# <a name="problem3"></a>Problem 3
 Add another element to the web page developed in [Problem 2](#problem2): a text input
 
 Adjust the button already on the page from [Problem2](#problem2) to instead send a POST request to the endpoint developed in [Problem 1](#problem1) with the text of the newly added text input element as the body of the request
