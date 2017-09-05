@@ -12,7 +12,7 @@ test.txt
 dedupe test.txt ---> ["one", "banana", "two", "three", "four"]
 ```
 
-# Problem 2 (Revised)
+# <a name="problem2"><a>Problem 2 (Revised)
 Design a data structure which has the following operations (the data is assumed to be a string for this problem):
 - add(string str) => int
     - Adds the passed in string to the internal structure

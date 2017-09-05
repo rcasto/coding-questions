@@ -42,7 +42,7 @@ When this button is clicked it will send a HTTP GET request to your endpoint
 Your endpoint service from [Problem 3](#problem3) must be updated to do the following:
 - On receiving a GET request it should return the 5 most recently sent queries via POST requests
 
-Hint:  The data structure from the [previous problem set](set2.md) may be helpful
+Hint:  The data structure from the [previous problem set](set2.md#problem2) may be helpful
 
 ```
 POST http://someendpoint/api/hello Body { text: 'blah' }
